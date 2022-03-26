@@ -1,0 +1,93 @@
+<!-- <div class="content-wrapper" style="background-image: url(/assets/images/loginback.avif);"> -->
+<div class="content-wrapper">
+    <div class="container ">
+        <div class="row  justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+
+                <div class="mt-5 elevation-2">
+                    <div class="card  ">
+                        <h2 style="text-align: center;" class="mt-5">Add Patient </h2>
+
+
+                        <div class="m-4">
+                            <form [formGroup]="formGroup" (ngSubmit)="savePatient()">
+
+                                <div class=" form-group text-left">
+                                    <label for="name" class="form-label">Patient Name :</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="enter your name" formControlName="patientName">
+
+
+                                </div>
+
+                                <div class=" form-group text-left">
+                                    <label for="name" class="form-label">Gender :</label>
+                                    <div class="form-group col-lg-12 flex-column d-flex">
+                                        <select name="gender" id="gender" formControlName="gender"
+                                            style="height: 30px;">
+                                            <option value="-1">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class=" form-group text-left">
+                                    <label for="age" class="form-label">Age :</label>
+                                    <input type="number" class="form-control" id="age" name="age"
+                                        placeholder="enter your age" formControlName="age">
+                                </div>
+                                <div class=" form-group text-left">
+                                    <label for="dob" class="form-label">Date Of Birth :</label>
+                                    <input type="date" class="form-control" id="dob" name="dob" formControlName="dob">
+                                </div>
+                                <div class=" form-group text-left">
+                                    <label for="phonNo." class="form-label">Phone No. :</label>
+                                    <input type="text" class="form-control" id="phonNo." name="phonNo."
+                                        placeholder="enter your phonNo." formControlName="phonNo">
+                                    <div *ngIf="submitted && f['phonNo'].errors">
+                                        <div class="error text-danger">
+                                            Phone no. invalid
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label for="email" class="form-label">Email :</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="enter your email" formControlName="email">
+                                    <div *ngIf="submitted && f['email'].errors">
+                                        <div class="error text-danger">
+                                            invalid email
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" form-group text-left">
+                                    <label for="address" class="form-label">Address :</label>
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="enter your address" formControlName="address">
+                                </div>
+                                <div class=" form-group text-left">
+                                    <label for="photo" class="form-label">Photo :</label>
+                                    <input type="file" class="form-control" id="photo" name="photo" multiple
+                                        (change)="fileChange($event.target)" placeholder="enter your photo"
+                                        formControlName="photo">
+                                </div>
+                                <div class=" form-group text-right">
+                                    <button >Add family members</button>
+                                </div>
+                                <button type="submit">Save </button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div style="height: 100px;">
+            </div>
+        </div>
+    </div>
+</div>
