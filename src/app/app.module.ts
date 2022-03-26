@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FamilyMembersComponent } from './components/family-members/family-members.component';
+import { ShowpatientComponent } from './components/showpatient/showpatient.component';
 
 
 
@@ -18,6 +19,7 @@ import { FamilyMembersComponent } from './components/family-members/family-membe
     AppComponent,
     PatientComponent,
     FamilyMembersComponent,
+    ShowpatientComponent,
    
   ],
   imports: [
@@ -29,7 +31,7 @@ import { FamilyMembersComponent } from './components/family-members/family-membe
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-
+  
   
   ],
   providers: [],

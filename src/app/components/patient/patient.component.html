@@ -10,7 +10,7 @@
 
 
                         <div class="m-4">
-                            <form [formGroup]="formGroup" (ngSubmit)="savePatient()">
+                            <form [formGroup] = "formGroup" (ngSubmit)="savePatient()">
 
                                 <div class=" form-group text-left">
                                     <label for="name" class="form-label">Patient Name :</label>
@@ -74,9 +74,22 @@
                                         (change)="fileChange($event.target)" placeholder="enter your photo"
                                         formControlName="photo">
                                 </div>
-                                <div class=" form-group text-right">
-                                    <button >Add family members</button>
-                                </div>
+                                <!-- <div class=" form-group text-right">
+                                    <div class="form-group col-lg-6 flex-column d-flex">
+                                        <select name="gender" id="gender" formControlName="gender"
+                                            style="height: 30px;">
+                                            <option value="-1">add family Information</option>
+                                            <option value="father">Father</option>
+                                            <option value="mather">Mother</option>
+                                            <option value="sisther">Sister</option>
+                                            <option value="father">Brother</option>
+                                            <option value="mather">others</option>
+                                        </select>
+                                        <button class="btn btn-sidebar">
+                                            <i class="fas fa-search fa-fw"></i>
+                                          </button>
+                                    </div>
+                                </div> -->
                                 <button type="submit">Save </button>
 
                             </form>

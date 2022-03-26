@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let item of getPatient.data">
+            <div class="card p-3">
+                <div class="d-flex flex-row mb-2">
+                    <img src="{{item.photosUri}}" width="50%">
+                    <div class="d-flex flex-column ml-2  p-3">
+                        <span>Name -- {{item.patientName}}</span>                         
+                        <span class="text-black-50">Gender : {{item.gender}}
+                        </span>
+                        <span class="text-black-50">Age : {{item.age}}
+                        </span>
+                        <span class="text-black-50">Date Of Birth : {{item.dob}}
+                        </span>
+                        <span class="text-black-50">Phone : {{item.phonNo}}
+                        </span>                       
+                                             
+                        <span class="text-black-50">Email : {{item.email}}
+                        </span>
+                        <span class="text-black-50">Address : {{item.address}}
+                        </span> 
+                       
+                        <div class="container mt-3">
+                            <div class="row">
+                                <div class="col-md-12 bg-light text-right">
+                                    <button type="button" class="btn btn-warning">Add Family Info</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                    </div>
+                </div>
+
+                <div class="btn-group ">
+                    <a href="#" class="btn btn-success col-md-6">Edit</a>
+                    <a href="#" class="btn btn-danger col-md-6">Delete</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
