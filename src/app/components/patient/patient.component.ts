@@ -62,7 +62,11 @@ export class PatientComponent implements OnInit {
     formData.append('patientName',this.formGroup.get('patientName')?.value);
     formData.append('gender',this.formGroup.get('gender')?.value);
     formData.append('age',this.formGroup.get('age')?.value);
-    formData.append('dob', new Date(this.formGroup.get('dob')?.value).toDateString());
+     formData.append('dob', new Date(this.formGroup.get('dob')?.value.formate("dd-MM-yyyy")).toDateString());
+    //formData.append('dob', new Date(this.fg.get('dob')?.value).toUTCString());
+
+    //<p>{{myDate | date: 'dd-MM-yyyy'}}</p>
+// Typescript
     formData.append('phonNo',this.formGroup.get('phonNo')?.value);
     formData.append('email',this.formGroup.get('email')?.value);
     formData.append('address',this.formGroup.get('address')?.value);

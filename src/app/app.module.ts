@@ -13,6 +13,7 @@ import { ShowpatientComponent } from './components/showpatient/showpatient.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { ShowFafmilyMembersComponent } from './components/show-fafmily-members/show-fafmily-members.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     PatientComponent,
     FamilyMembersComponent,
     ShowpatientComponent,
+    ShowFafmilyMembersComponent,
    
   ],
   imports: [

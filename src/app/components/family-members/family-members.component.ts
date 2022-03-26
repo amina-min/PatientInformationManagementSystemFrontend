@@ -25,7 +25,7 @@ export class FamilyMembersComponent implements OnInit {
       this.submitted = true;
       console.log(this.patientInfo.familyMemberName);
       const headers = { 'content-Type': 'application/json' };
-      this.http.post<any>("http://localhost:9091/informationAdd", JSON.stringify(this.patientInfo), { headers: headers })
+      this.http.post<any>("http://localhost:9091/familyMemberAdd", JSON.stringify(this.patientInfo), { headers: headers })
         .subscribe(data => {
           console.log(data);
           this.toastr.success("save successfull");

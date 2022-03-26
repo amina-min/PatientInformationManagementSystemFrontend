@@ -17,7 +17,7 @@ export class ShowpatientComponent implements OnInit {
   patientName = "patientName";
   isSave: boolean = true;
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
-  myDate = new Date();
+  
   ngOnInit(): void {
     this.getAllPatient();
   }

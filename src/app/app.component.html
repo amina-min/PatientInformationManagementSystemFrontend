@@ -84,7 +84,7 @@
 
       <div class=" ml-5 mt-2 pb-10 ">
         <div class="image">
-          <img src="src\assets\images\imageslogo.png" class="img-circle elevation-2" height="90" width="80">
+          <img src="assets\images\imageslogo.png" class="img-circle elevation-2" height="120" width="100">
         </div>
       </div>
 
@@ -108,8 +108,15 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2" style="height: 1000;">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-          <li class="nav-item menu-open">
+          <li class="nav-item">
+            <a routerLink="" class="nav-link menu-open">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                View Patient
+              </p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a routerLink='patient' class="nav-link ">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -117,19 +124,12 @@
               </p>
             </a>
           </li>
+        
           <li class="nav-item">
-            <a routerLink="showPatient" class="nav-link">
-              <i class="nav-icon fas fa-database"></i>
-              <p>
-                View Patient
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink='familyInfo' class="nav-link">
+            <a routerLink='showFamilyMembers' class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Family Information
+                Family Members
               </p>
             </a>
 
