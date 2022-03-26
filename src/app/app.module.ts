@@ -5,13 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PatientComponent } from './components/patient/patient.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FamilyMembersComponent } from './components/family-members/family-members.component';
 import { ShowpatientComponent } from './components/showpatient/showpatient.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -24,14 +25,13 @@ import { ShowpatientComponent } from './components/showpatient/showpatient.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,    
-    CommonModule,
+    AppRoutingModule,  
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
-  
+    ToastrModule.forRoot(), 
   
   ],
   providers: [],

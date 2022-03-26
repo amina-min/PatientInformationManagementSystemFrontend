@@ -7,7 +7,7 @@ import { ShowpatientComponent } from './components/showpatient/showpatient.compo
 const routes: Routes = [
 
   { path: 'patient', component: PatientComponent },
-  { path: 'family', component: FamilyMembersComponent },
+  { path: 'familyInfo', component: FamilyMembersComponent },
   { path: 'showPatient', component: ShowpatientComponent },
 
 ]
