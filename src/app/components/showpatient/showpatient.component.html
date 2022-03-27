@@ -1,3 +1,4 @@
+<div class="content-wrapper">
 <div class="container mt-5">
     <div class="row">
         <div class="ml-5">
@@ -6,7 +7,7 @@
         <div class="col-md-4 mb-3" *ngFor="let item of getPatient.data">
             <div class="card p-3">
                 <div class="d-flex flex-row mb-2">
-                    <img src="{{item.photosUri}}" width="50%">
+                    <img src="{{item.photosUri}}" width="60px" height="130px">
                     <div class="d-flex flex-column ml-2  p-3">
                         <span>Name : {{item.patientName}}</span>
                         <span class="text-black-50">Gender : {{item.gender}}
@@ -46,4 +47,5 @@
 
     </div>
 
+</div>
 </div>
