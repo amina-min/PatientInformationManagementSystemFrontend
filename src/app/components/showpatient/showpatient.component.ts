@@ -37,7 +37,7 @@ export class ShowpatientComponent implements OnInit {
 
 
 
-  editEmployee(patient: any) {
+  editPatient(patient: any) {
     this.patient.id = patient.id;
     this.patient.patientName = patient.patientName;
     this.patient.gender = patient.gender;
