@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PatientInfo } from '../family-members/patientInfo.model';
 
@@ -9,28 +9,61 @@ import { PatientInfo } from '../family-members/patientInfo.model';
   templateUrl: './show-fafmily-members.component.html',
   styleUrls: ['./show-fafmily-members.component.css']
 })
-export class ShowFafmilyMembersComponent implements OnInit { 
+export class ShowFafmilyMembersComponent implements OnInit {
   getData: any = [];
   patientinfo: PatientInfo = new PatientInfo();
-  familyMemberName= "familyMemberName";
+  familyMemberName = "familyMemberName";
   isSave: boolean = true;
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
- 
+
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService, private activatedRoute: ActivatedRoute) { }
+
   ngOnInit(): void {
-    this.getAllPatientFamilyMembers();
+    
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   if (params['patientId'] != undefined || params['patientId'] != null ){
+    //     this.getInformationtById(params['patientId']);
+    //   }
+    // }
+    this.activatedRoute.queryParams.subscribe(params => {  
+      // if (params['patientId'] != undefined || params['patientId'] != null) {
+        
+      // }   
+      this.getInformationtById(params['patientId']);
+      console.log("Hello");
+      
+     
+    })
+
+
   }
 
-  getAllPatientFamilyMembers() {
+
+
+  getInformationtById(patientId:number) {
     const header = {
       "Content-Type": "application/json"
     };
-    this.http.get('http://localhost:9091/getAllfamilyMember', { headers: header }).subscribe((res) => {
-      //console.log(res);
+    this.http.get('http://localhost:9091/getInformationtById/' + 3, { headers: header }).subscribe((res:any) => {
+      console.log(res);
       this.getData = res;
-      console.log(this.getData);
+     
+      
     }, err => {
       console.log("load failed");
     })
   }
+
+  // getAllPatientFamilyMembers() {
+  //   const header = {
+  //     "Content-Type": "application/json"
+  //   };
+  //   this.http.get('http://localhost:9091/getAllfamilyMember', { headers: header }).subscribe((res) => {
+  //     //console.log(res);
+  //     this.getData = res;
+  //     console.log(this.getData);
+  //   }, err => {
+  //     console.log("load failed");
+  //   })
+  // }
 
 }
