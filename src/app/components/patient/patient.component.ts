@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -42,9 +43,26 @@ export class PatientComponent implements OnInit {
 
   ngOnInit(): void {
     if (history.state.isSave != undefined) {
-      this.patient = history.state.pat
+      this.patient = history.state.patient
       this.isSave = history.state.isSave
-      console.log(history.state.pat);
+      console.log(history.state.patient);
+
+      
+      this.formGroup.get('patientName')?.setValue(this.patient.patientName)
+      this.formGroup.get('gender')?.setValue(this.patient.gender)
+      this.formGroup.get('age')?.setValue(this.patient.age)
+      this.formGroup.get('dob')?.setValue(this.patient.dob)
+      this.formGroup.get('address')?.setValue(this.patient.address)
+      this.formGroup.get('email')?.setValue(this.patient.email)
+      this.formGroup.get('phonNo')?.setValue(this.patient.phonNo)
+      
+
+      let dp = new DatePipe(navigator.language);
+let p = 'y-MM-dd'; // YYYY-MM-DD
+let dtr = dp.transform(new Date(), p);
+this.formGroup.get('dob')?.setValue(dtr)
+
+
     }
 
   }
@@ -63,21 +81,28 @@ export class PatientComponent implements OnInit {
 
     this.submitted = true;
     const formData: FormData = new FormData();
+    formData.append('id', this.patient.id.toString());
+
     formData.append('patientName', this.formGroup.get('patientName')?.value);
     formData.append('gender', this.formGroup.get('gender')?.value);
     formData.append('age', this.formGroup.get('age')?.value);
-    // formData.append('dob', new Date(this.formGroup.get('dob')?.value.formate("dd-MM-yyyy")).toDateString());
     formData.append('dob', new Date(this.formGroup.get('dob')?.value).toUTCString());
 
 
     formData.append('phonNo', this.formGroup.get('phonNo')?.value);
     formData.append('email', this.formGroup.get('email')?.value);
     formData.append('address', this.formGroup.get('address')?.value);
-    formData.append('file', this.fileToUpload, this.fileToUpload?.name);
-    console.log(formData);
+    if (this.isSave) {
+      formData.append('file', this.fileToUpload, this.fileToUpload?.name);
+    }else{
+      formData.append('photosUri',this.patient.photosUri);
 
+    }
+
+var saveApi = "http://localhost:9091/patientAdd"
+var updateApi = "http://localhost:9091/patientUpdate"
     const headers = { 'content-Type': 'application/json' };
-    this.http.post<any>("http://localhost:9091/patientAdd", formData)
+    this.http.post<any>(this.isSave?saveApi:updateApi, formData)
       .subscribe(data => {
         console.log(data);
         this.toastr.success("save successfull");
@@ -86,35 +111,6 @@ export class PatientComponent implements OnInit {
       }
       )
   }
-
-
-  updatePatient() {
-    const formData: FormData = new FormData();
-    formData.append('patientName', this.formGroup.get('patientName')?.value);
-    formData.append('gender', this.formGroup.get('gender')?.value);
-    formData.append('age', this.formGroup.get('age')?.value);   
-    formData.append('dob', new Date(this.formGroup.get('dob')?.value).toUTCString());
-
-    formData.append('phonNo', this.formGroup.get('phonNo')?.value);
-    formData.append('email', this.formGroup.get('email')?.value);
-    formData.append('address', this.formGroup.get('address')?.value);
-    formData.append('file', this.fileToUpload, this.fileToUpload?.name);
-    console.log(formData);
-
-    const headers = { 'content-Type': 'application/json' };
-    this.http.post<any>("http://localhost:9091/patientAdd", formData)
-      .subscribe(data => {
-        console.log(data);
-        this.toastr.success("save successfull");
-      }, err => {
-        this.toastr.success("save Failed");
-      }
-      )
-  }
-
-
-
-
 
 
 }

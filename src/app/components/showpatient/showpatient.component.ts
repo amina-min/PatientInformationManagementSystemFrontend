@@ -47,8 +47,8 @@ export class ShowpatientComponent implements OnInit {
     this.p.phonNo = item.phonNo;
     this.p.email = item.email;
     this.p.address = item.address;
-    this.p.photos =item.photos;
-    this.router.navigate(['/patient'], { state: { pat: item, isSave: false } })
+    this.p.photosUri =item.photosUri;
+    this.router.navigate(['/patient'], { state: { patient: item, isSave: false } })
 
 
     console.log(this.p)

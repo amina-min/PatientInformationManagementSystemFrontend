@@ -7,7 +7,7 @@
         <div class="col-md-4 mb-3" *ngFor="let item of getPatient.data">
             <div class="card p-3">
                 <div class="d-flex flex-row mb-2">
-                    <img src="{{item.photosUri}}" width="60px" height="130px">
+                    <img src="{{item.photosUri}}" width="60px" height="60px">
                     <div class="d-flex flex-column ml-2  p-3">
                         <span>Name : {{item.patientName}}</span>
                         <span class="text-black-50">Gender : {{item.gender}}
@@ -27,8 +27,9 @@
 
                         <div class="container mt-3">
                             <div class="row">
-                                <div class="col-md-12 bg-light text-right">
-                                    <button type="button" [routerLink]="'/familyInfo'" class="btn btn-warning">Add Family Info</button>
+                                <div class="col-md-12 bg-light">
+                                    <button type="button" [routerLink]="'/familyInfo'" class="btn ">Add Family Info</button>
+                                    <button type="button" [routerLink]="'/showFamilyMembers'" class="btn ">Show Family Members</button>
                                 </div>
                             </div>
                         </div>
@@ -45,5 +46,4 @@
 
     </div>
 
-</div>
 </div>

@@ -6,7 +6,7 @@
 
                 <div class="mt-5 elevation-2">
                     <div class="card  ">
-                        <h2 style="text-align: center;" class="mt-5">Add Patient </h2>
+                        <h2 style="text-align: center;" class="mt-5"> {{isSave?'Add Patient':'Update Patient'}} </h2>
 
 
                         <div class="m-4">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class=" form-group text-left">
                                     <label for="dob" class="form-label">Date Of Birth :</label>
-                                    <input type="date" class="form-control" id="dob" name="dob" formControlName="dob">
+                                    <input type="date" class="form-control"   id="dob" name="dob" formControlName="dob">
                                 </div>
                                 <div class=" form-group text-left">
                                     <label for="phonNo." class="form-label">Phone No. :</label>
@@ -67,14 +67,14 @@
                                     <input type="text" class="form-control" id="address" name="address"
                                         placeholder="enter your address" formControlName="address">
                                 </div>
-                                <div class=" form-group text-left">
+                                <div *ngIf="isSave" class=" form-group text-left">
                                     <label for="photo" class="form-label">Photo :</label>
                                     <input type="file" class="form-control" id="photo" name="photo" multiple
                                         (change)="fileChange($event.target)" placeholder="enter your photo"
                                         formControlName="photo">
                                 </div>
                                 
-                                <button type="submit">Save </button>
+                                <button type="submit"> {{isSave?'Save':'Update'}} </button>
 
                             </form>
                         </div>

@@ -7,7 +7,7 @@ export class Patient {
     phonNo: string = '';
     email: string = '';
     address: string = '';
-    photos: string = "";
+    photosUri: string = "";
     constructor() {
 
     }
