@@ -5,18 +5,18 @@
            <h1 style="text-align: center;">Patient Family Members</h1>
         </div>
         
-        <div class="col-md-4 mb-3" *ngFor="let i of getData.data">
+        <div class="col-md-4 mb-3" >
             <div class="card p-3">
                 <div class="d-flex flex-row mb-2">
-                    <div class="d-flex flex-column ml-2  p-3">
-                        <span>Name : {{i.familyMemberName}}</span>
-                        <span class="text-black-50">PatientId : {{i.patientId}}
+                    <div class="d-flex flex-column ml-2  p-3" *ngIf ="patientinfo">
+                        <span>Name : {{patientinfo.familyMemberName}}</span>
+                        <span class="text-black-50">PatientId : {{patientinfo.patientId}}
                         </span>
-                        <span class="text-black-50">Relationship : {{i.relationship}}
+                        <span class="text-black-50">Relationship : {{patientinfo.relationship}}
                         </span>
-                        <span class="text-black-50">Phone : {{i.phonNo}}
+                        <span class="text-black-50">Phone : {{patientinfo.phonNo}}
                         </span>
-                        <span class="text-black-50">Address : {{i.address}}
+                        <span class="text-black-50">Address : {{patientinfo.address}}
                         </span>
                     </div>
                 </div>

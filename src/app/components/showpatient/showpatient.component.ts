@@ -40,10 +40,6 @@ export class ShowpatientComponent implements OnInit {
     })
   }
 
-
-
-
-
   getFamilyMembers() {
     this.router.navigate(['/showFamilyMembers'], { queryParams: { patientId: this.p.id } }
     )
