@@ -6,17 +6,17 @@
         </div>
         
         <div class="col-md-4 mb-3" >
-            <div class="card p-3">
+            <div *ngFor ="let fm of familyMembers" class="card p-3">
                 <div class="d-flex flex-row mb-2">
-                    <div class="d-flex flex-column ml-2  p-3" *ngIf ="patientinfo">
-                        <span>Name : {{patientinfo.familyMemberName}}</span>
-                        <span class="text-black-50">PatientId : {{patientinfo.patientId}}
+                    <div class="d-flex flex-column ml-2  p-3" >
+                        <span>Name : {{fm.familyMemberName}}</span>
+                        <span class="text-black-50">PatientId : {{fm.patientId}}
                         </span>
-                        <span class="text-black-50">Relationship : {{patientinfo.relationship}}
+                        <span class="text-black-50">Relationship : {{fm.relationship}}
                         </span>
-                        <span class="text-black-50">Phone : {{patientinfo.phonNo}}
+                        <span class="text-black-50">Phone : {{fm.phonNo}}
                         </span>
-                        <span class="text-black-50">Address : {{patientinfo.address}}
+                        <span class="text-black-50">Address : {{fm.address}}
                         </span>
                     </div>
                 </div>

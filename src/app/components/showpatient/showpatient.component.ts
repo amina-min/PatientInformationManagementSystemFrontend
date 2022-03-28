@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PatientInfo } from '../family-members/patientInfo.model';
+import { FamilyMember } from '../family-members/familymember.model';
 import { Patient } from '../patient/patient.model';
 
 @Component({
@@ -13,9 +13,9 @@ import { Patient } from '../patient/patient.model';
 })
 export class ShowpatientComponent implements OnInit {
 
-  getPatient: any = [];
+  patients: any = [];
   p = new Patient();
-  patientInfo = new PatientInfo()
+  familyMember = new FamilyMember()
   patientName = "patientName";
   isSave: boolean = true;
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService, private activatedRoute: ActivatedRoute
@@ -32,16 +32,21 @@ export class ShowpatientComponent implements OnInit {
     const header = {
       "Content-Type": "application/json"
     };
-    this.http.get('http://localhost:9091/getAllPatient', { headers: header }).subscribe((res) => {
+    this.http.get<any>('http://localhost:9091/getAllPatient', { headers: header }).subscribe((res) => {
       //console.log(res);
-      this.getPatient = res;
+      this.patients = res.data;
     }, err => {
       console.log("load failed");
     })
   }
 
-  getFamilyMembers() {
-    this.router.navigate(['/showFamilyMembers'], { queryParams: { patientId: this.p.id } }
+  getFamilyMembers(patient:Patient) {
+    this.router.navigate(['/showFamilyMembers'], { queryParams: { patientId: patient.id } }
+    )
+
+  }
+  addFamilyMember(patient:Patient) {
+    this.router.navigate(['/familyInfo'], { queryParams: { patientId: patient.id } }
     )
 
   }

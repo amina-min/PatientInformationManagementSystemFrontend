@@ -4,33 +4,33 @@
         <div class="ml-5">
             <h1 style="text-align: center;">Patients</h1>
          </div>
-        <div class="col-md-4 mb-3" *ngFor="let item of getPatient.data">
+        <div class="col-md-4 mb-3" *ngFor="let patient of patients">
             <div class="card p-3">
                 <div class="d-flex flex-row mb-2">
-                    <img src="{{item.photosUri}}" width="60px" height="60px">
+                    <img src="{{patient.photosUri}}" width="60px" height="60px">
                     <div class="d-flex flex-column ml-2  p-3">
-                        <span>Name : {{item.patientName}}</span>
-                        <span class="text-black-50">Gender : {{item.gender}}
+                        <span>Name : {{patient.patientName}}</span>
+                        <span class="text-black-50">Gender : {{patient.gender}}
                         </span>
-                        <span class="text-black-50">Age : {{item.age}}
+                        <span class="text-black-50">Age : {{patient.age}}
                         </span>
-                        <span class="text-black-50">Date Of Birth : {{item.dob}}
+                        <span class="text-black-50">Date Of Birth : {{patient.dob}}
                         </span>
                     
-                        <span class="text-black-50">Phone : {{item.phonNo}}
+                        <span class="text-black-50">Phone : {{patient.phonNo}}
                         </span>
 
-                        <span class="text-black-50">Email : {{item.email}}
+                        <span class="text-black-50">Email : {{patient.email}}
                         </span>
-                        <span class="text-black-50">Address : {{item.address}}
+                        <span class="text-black-50">Address : {{patient.address}}
                         </span>
 
                         <div class="container mt-3">
                             <div class="row">
                                 <div class="col-md-12 bg-light">
-                                    <button  [routerLink]="'/familyInfo'" class="btn btn-warning">Add Family Info</button><br>
+                                    <a (click)="addFamilyMember(patient)" class="btn btn-sm" style="background-color: darkorange;">Add Family Member</a><br>
                                     <!-- <button  href=getFamilyMembers() class="btn btn-danger">Show Family Members</button> -->
-                                    <a (click)="getFamilyMembers()" class="btn btn-danger col-md-12">Show Family Members</a>
+                                    <a (click)="getFamilyMembers(patient)" class="btn btn-sm mt-1" style="background-color: darkorange;">Show Family Members</a>
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                 </div>
 
                 <div class="btn-group ">
-                    <a (click)="editPatient(item)" class="btn btn-primary col-md-6">Edit</a>
-                    <a (click)="deletePatient(item)" class="btn btn-success col-md-6">Delete</a>
+                    <a (click)="editPatient(patient)" class="btn btn-primary col-md-6">Edit</a>
+                    <a (click)="deletePatient(patient)" class="btn btn-success col-md-6">Delete</a>
                 </div>
             </div>
         </div>
