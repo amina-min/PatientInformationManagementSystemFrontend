@@ -1,29 +1,29 @@
 <div class="content-wrapper">
-<div class="container mt-5">
-    <div class="row">
-        <div class="ml-5">
-           <h1 style="text-align: center;">Patient Family Members</h1>
-        </div>
-        
-        <div class="col-md-4 mb-3" >
-            <div *ngFor ="let fm of familyMembers" class="card p-3">
-                <div class="d-flex flex-row mb-2">
-                    <div class="d-flex flex-column ml-2  p-3" >
-                        <span>Name : {{fm.familyMemberName}}</span>
-                        <span class="text-black-50">PatientId : {{fm.patientId}}
-                        </span>
-                        <span class="text-black-50">Relationship : {{fm.relationship}}
-                        </span>
-                        <span class="text-black-50">Phone : {{fm.phonNo}}
-                        </span>
-                        <span class="text-black-50">Address : {{fm.address}}
-                        </span>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="ml-5">
+                <h1 style="text-align: center;">Patient Family Members</h1>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div *ngFor="let fm of familyMembers" class="card p-3">
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column ml-2  p-3">
+                            <span>Name : {{fm.familyMemberName}}</span>
+                            <span class="text-black-50">PatientId : {{fm.patientId}}
+                            </span>
+                            <span class="text-black-50">Relationship : {{fm.relationship}}
+                            </span>
+                            <span class="text-black-50">Phone : {{fm.phonNo}}
+                            </span>
+                            <span class="text-black-50">Address : {{fm.address}}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
 </div>
